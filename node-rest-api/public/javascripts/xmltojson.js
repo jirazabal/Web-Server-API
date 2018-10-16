@@ -1,11 +1,17 @@
-var convert = require('xml-js');
-var xml =
-'<?xml version="1.0" encoding="utf-8"?>' +
-'<note importance="high" logged="true">' +
-'    <title>Happy</title>' +
-'    <todo>Work</todo>' +
-'    <todo>Play</todo>' +
-'</note>';
-var result1 = convert.xml2json(xml, {compact: true, spaces: 4});
-var result2 = convert.xml2json(xml, {compact: false, spaces: 4});
-console.log(result1, '\n', result2);
+fs = require('fs');
+var xml2js = require('xml2json');
+
+var filePath = "node-rest-api/public/javascripts/vpl.xml"   // Assume this returns a fully qualified XML file path
+try {
+    var fileData = fs.readFileSync(filePath, 'utf8');
+
+    var parser = new xml2js.Parser();       
+    parser.parseString(fileData.substring(0, fileData.length), function (err, result) {
+        var json = JSON.stringify(result);
+    });
+
+    console.log("File '" + filePath + "/ was successfully read.\n");
+} catch (ex) {
+    console.log("Unable to read file '" + filePath + "'.");
+    console.log(ex);
+}
