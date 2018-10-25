@@ -53,7 +53,14 @@ function xmltojson() {
         // access inner data
         //console.log(p);
         if (p.name != null) {
-            json2.name = p.name;
+            json2.question_title = p.name;
+        }
+        if (p.intro != null) {
+            json2.question_text = p.intro;
+        }
+        if (p.required_files != null) {
+            json2.required_files = p.required_files;
+            console.log(json2.required_files[0].required_file[0].name);
         }
     }
 

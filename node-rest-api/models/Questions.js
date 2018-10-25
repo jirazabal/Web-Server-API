@@ -14,6 +14,7 @@ var CourseSchema = new mongoose.Schema({
 
 var QuestionsSchema = new mongoose.Schema({
     course_id: [CourseSchema],
+    question_title: String,
     question_type: String,
     question_text: String,
     answer_choices: Array,
@@ -22,7 +23,7 @@ var QuestionsSchema = new mongoose.Schema({
     difficulty: String,
     cognitive_level: String,
     skill_SLO: [SLOSchema],
-    
+    required_files: Array,
     updated_at: {type: Date, default: Date.now},
 });
 
