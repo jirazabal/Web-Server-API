@@ -37,7 +37,7 @@ The version of mongodb in the Ubuntu repositories is outdated, and neither creat
 -----------------------------------
 Instructions
 -----------------------------------
-Once all components are installed and mongod is running on the server, navigate to Web-Server-API/node-rest-api/ and run the server with "node app.js".  The server will confirm a connection with Mongo and listen on port 3000 on all interfaces for http methods (GET, POST, etc. - see express).  The API expects a file with extension .mbz, a moodle export format that is simply a .tar.gz file with a large directory tree and various .xml files.  Each file is expected to contain a single question.
+Once all components are installed and mongod is running on the server, navigate to Web-Server-API/node-rest-api/ and run the server with "npm start".  The server will confirm a connection with Mongo and listen on port 3000 on all interfaces for http methods (GET, POST, etc. - see express).  The API expects a file with extension .mbz, a moodle export format that is simply a .tar.gz file with a large directory tree and various .xml files.  Each file is expected to contain a single question.
 
 -----------------------------------
 Known Issues
