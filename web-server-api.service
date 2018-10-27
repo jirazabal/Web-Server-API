@@ -7,8 +7,8 @@ User=ryan
 Group=ryan
 Restart=always
 KillSignal=SIGQUIT
-WorkingDirectory=/home/webapiteam/CISC475/Web-Server-API/node-rest-api
-ExecStart=npm start
+WorkingDirectory=/home/webapiteam/CISC475/Web-Server-API/
+ExecStart=/home/webapiteam/CISC475/Web-Server-API/start-server.sh
 
 [Install]
 WantedBy=multi-user.target
