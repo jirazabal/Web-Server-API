@@ -1,0 +1,14 @@
+[Unit]
+Description=Web Server API for Moodle to MongoDB Conversion
+
+[Service]
+PIDFile=/tmp/web-server-api-UD-18.pid
+User=ryan
+Group=ryan
+Restart=always
+KillSignal=SIGQUIT
+WorkingDirectory=/home/webapiteam/CISC475/Web-Server-API/node-rest-api
+ExecStart=npm start
+
+[Install]
+WantedBy=multi-user.target

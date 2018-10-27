@@ -39,6 +39,16 @@ Instructions
 -----------------------------------
 Once all components are installed and mongod is running on the server, navigate to Web-Server-API/node-rest-api/ and run the server with "npm start".  The server will confirm a connection with Mongo and listen on port 3000 on all interfaces for http methods (GET, POST, etc. - see express).  The API expects a file with extension .mbz, a moodle export format that is simply a .tar.gz file with a large directory tree and various .xml files.  Each file is expected to contain a single question.
 
+Autostarting and running as a service
+
+Edit the username and group in web-server-api.service, use chown to change the owner, and move the file to /etc/systemd/system/ (requires sudo privileges).  Run the command "systemctl enable web-server-api.service", and run "service web-server-api start".  Use "service web-server-api status" to check the status (duh) and "service web-server-api restart" if needed (systemd SHOULD restart it in the event of a crash, but if it doesn't, or you just need to restart it because you updated the code, that's the command).  This should both act as a watchdog and autostart the server when the PC boots.
+
+Be aware that systemctl/systemd is one of the less UNIX-y things about Linux, and some people hate it passionately.  A few distros don't use it at all, but anything even relatively mainstream should be fine.
+
+MacOS uses launchd/launchctl, which is similar I guess?  There's probably something in the GUI that can do it too, maybe?
+
+In Windows, just drop a shortcut that executes "npm start" into the Start menu's Startup folder and call it a day to autostart.  If you also want to restart after crashes, using Task Scheduler is probably easier than making a custom Windows Service; just set it to run every five minutes or something and only allow one instance to run.
+
 -----------------------------------
 Known Issues
 -----------------------------------
