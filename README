@@ -22,16 +22,15 @@ mongodb 4.03
 node 8.10.0
 npm 3.5.2
 
-the following npm packages:
-express 4.16.4
-targz 1.0.1
+the npm packages listed in package.json
+
 
 No known conflicts arise from installing the components in any particular order.
 
 ******************************
 * IMPORTANT NOTE FOR MONGODB *
 ******************************
-The version of mongodb in the Ubuntu repositories is outdated, and neither created nor  maintained by MongoDB.  Furthermore, it WILL cause conflicts with the official version.  Follow the instructions at https://docs.mongodb.com/manual/installation/ to either add a repository and install the "mongodb-org" package or download the binaries.  You can also find and compile the source code from https://github.com/mongodb/mongo.
+The version of mongodb in the Ubuntu repositories is outdated, and neither created nor maintained by MongoDB.  Furthermore, it WILL cause conflicts with the official version.  Follow the instructions at https://docs.mongodb.com/manual/installation/ to either add a repository and install the "mongodb-org" package or download the binaries.  You can also find and compile the source code from https://github.com/mongodb/mongo.
 ******************************
 
 -----------------------------------
