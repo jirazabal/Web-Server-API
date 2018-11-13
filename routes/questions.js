@@ -3,9 +3,14 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Question = require('../models/Questions.js');
 
-/* Get All Questions */
+/* Get All Questions  or Questions Based off Search Params
+    format:          /?key=value
+    multiple params: /?key1=value1&key2=value2
+*/
+
 router.get('/', function(req, res, next){
-    Question.find(function (err, Questions) {
+    var query = require('url').parse(req.url, true).query;
+    Question.find(query, function (err, Questions) {
         if (err) return next(err);
         res.json(Questions);
     });
@@ -18,6 +23,7 @@ router.get('/:id', function(req, res, next){
         res.json(post);
     });
 });
+
 
 /* Save Question */
 router.post('/', function(req, res, next){
