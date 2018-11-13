@@ -1,4 +1,4 @@
-function xmltojson() {
+function xmltojson(str) {
     var fs = require('fs');
 
     var xml2js = require('xml2js');
@@ -27,7 +27,8 @@ function xmltojson() {
     // 
 
 
-    var filePath = "module.xml"   // Assume this returns a fully qualified XML file path
+    var filePath = str;   // Assume this returns a fully qualified XML file path
+    var thing = "module.xml";
     try {
         var fileData = fs.readFileSync(filePath, 'utf8');
 
@@ -51,12 +52,9 @@ function xmltojson() {
             for(key in p){
                 console.log(key + "->" + p[key]);
             }
+            
             //vpl[0].name would access the name for instance
-
-            //json2.name = p.name;
-
             // access inner data
-            //console.log(p);
             if (p.name != null) {
                 json2.question_title = p.name;
             }
@@ -68,7 +66,7 @@ function xmltojson() {
                 console.log(json2.required_files[0].required_file[0].name);
             }
         }
-        if(filePath == "module.xml"){
+        if(thing == "module.xml"){
             //Grabs tags from module.xml
             p = objectValue.module.tags[0].tag;
             for(i = 0; i < p.length; i++){
