@@ -1,4 +1,4 @@
-function xmltojson() {
+function xmltojson(str) {
     var fs = require('fs');
 
     var xml2js = require('xml2js');
@@ -27,7 +27,8 @@ function xmltojson() {
     // 
 
 
-    var filePath = "vpl.xml"   // Assume this returns a fully qualified XML file path
+    var filePath = str;   // Assume this returns a fully qualified XML file path
+    var thing = "module.xml";
     try {
         var fileData = fs.readFileSync(filePath, 'utf8');
 
@@ -44,23 +45,48 @@ function xmltojson() {
     //Here's how you traverse through the read json.
     if (json) {
         var objectValue = JSON.parse(json);
-        //Access each key in key in vpl.
-        p = objectValue.activity.vpl[0];
-        //vpl[0].name would access the name for instance
-
-        //json2.name = p.name;
-
-        // access inner data
-        //console.log(p);
-        if (p.name != null) {
-            json2.question_title = p.name;
+        //Find a way to read file name, not path
+        if(filePath == "vpl.xml"){
+            //Access each key in key in vpl.
+            p = objectValue.activity.vpl[0];
+            for(key in p){
+                console.log(key + "->" + p[key]);
+            }
+            
+            //vpl[0].name would access the name for instance
+            // access inner data
+            if (p.name != null) {
+                json2.question_title = p.name;
+            }
+            if (p.intro != null) {
+                json2.question_text = p.intro;
+            }
+            if (p.required_files != null) {
+                json2.required_files = p.required_files;
+                console.log(json2.required_files[0].required_file[0].name);
+            }
         }
-        if (p.intro != null) {
-            json2.question_text = p.intro;
-        }
-        if (p.required_files != null) {
-            json2.required_files = p.required_files;
-            console.log(json2.required_files[0].required_file[0].name);
+        if(thing == "module.xml"){
+            //Grabs tags from module.xml
+            p = objectValue.module.tags[0].tag;
+            for(i = 0; i < p.length; i++){
+                var str = p[i].name[0].toLowerCase(); //Tag name
+                str = str.replace(/\s/g, '');
+                //Looking for difficulty tag
+                var diff = "difficulty-"; //Looking for string
+                //If difficulty is found, add it to the JSON
+                if(str.substring(0, diff.length)===diff)
+                    json2.difficulty = str.substring(diff.length);
+
+                //Looking for cognitive level
+                    if(str==="remembering"
+                        || str === "understanding"
+                        || str === "applying"
+                        || str === "analyzing"
+                        || str === "evaluating"
+                        || str === "creating")
+                        json2.cognitive_level = str;
+            }
         }
     }
 

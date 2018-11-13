@@ -5,6 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "cookie-parser": "^1.4.3",
+    "ejs": "^2.6.1",
     "cors": "^2.8.5",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
@@ -15,7 +16,8 @@
     "morgan": "^1.9.1",
     "targz": "^1.0.1",
     "xml2js": "^0.4.19",
-    "xml2json": "^0.11.2"
+    "xml2json": "^0.11.2",
+    "rimraf": "^2.6.2"
   },
   "devDependencies": {},
   "scripts": {
