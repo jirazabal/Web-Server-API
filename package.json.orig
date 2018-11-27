@@ -1,0 +1,45 @@
+{
+  "name": "web-server-api",
+  "version": "0.0.1",
+  "description": "This is the API for the web-based Moodle -> MongoDB application [TODO: Think of an actual name] created for the University of Delaware CISC Department.  The purpose of this application is to allow the import of questions into MongoDB after exporting them from Moodle, and to allow a user to add and edit data about each question, to aid in test creation for CISC 106 (General Computer Science for Engineers, an introductory programming class using Python).",
+  "main": "app.js",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "fs": "^0.0.1",
+    "http-errors": "^1.7.1",
+    "jquery": "^3.3.1",
+    "mongoose": "^5.3.11",
+    "morgan": "^1.9.1",
+    "mongoose": "^5.3.7",
+    "morgan": "^1.9.1",
+    "rimraf": "^2.6.2",
+    "targz": "^1.0.1",
+    "xml2js": "^0.4.19",
+    "xml2json": "^0.11.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jirazabal/Web-Server-API.git"
+  },
+  "keywords": [
+    "web",
+    "server",
+    "api",
+    "node.js",
+    "moodle",
+    "mongodb"
+  ],
+  "author": "Justin Irazabal <irazabal@udel.edu> Catherine Castagna <castacat@udel.edu> Jonathan Martin <jomartin@udel.edu> Phil Attoh-Okine <pokine@udel.edu> Ryan Dotts <rdotts@udel.edu>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/jirazabal/Web-Server-API/issues"
+  },
+  "homepage": "https://github.com/jirazabal/Web-Server-API"
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="51" version="2018031313">
+  <modulename>vpl</modulename>
+  <sectionid>32</sectionid>
+  <sectionnumber>1</sectionnumber>
+  <idnumber>36</idnumber>
+  <added>1534275482</added>
+  <score>0</score>
+  <indent>0</indent>
+  <visible>1</visible>
+  <visibleold>1</visibleold>
+  <groupmode>0</groupmode>
+  <groupingid>0</groupingid>
+  <completion>0</completion>
+  <completiongradeitemnumber>$@NULL@$</completiongradeitemnumber>
+  <completionview>0</completionview>
+  <completionexpected>0</completionexpected>
+  <availability>$@NULL@$</availability>
+  <showdescription>0</showdescription>
+  <tags>
+    <tag id="21">
+      <name>call and evaluate expressions using list methods</name>
+      <rawname>call and evaluate expressions using list methods</rawname>
+    </tag>
+    <tag id="34">
+      <name>difficulty-medium</name>
+      <rawname>difficulty-medium</rawname>
+    </tag>
+  </tags>
+</module>

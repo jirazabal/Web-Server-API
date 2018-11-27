@@ -1,3 +1,4 @@
+/***DELETE THIS*/
 function searchDirectory(){
     var fs = require('fs');
 

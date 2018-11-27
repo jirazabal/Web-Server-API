@@ -1,22 +1,27 @@
 var http = require("http");
+var sequence = 0;
+var maxSequence = 999999;
 
 function JsonToMongo() {
     var fs = require('fs');
     var filePath;
     var rimraf = require('rimraf');
     
-    const functions = require('./xmlToJson.js');
-    const searchDirectory = require('./searchDirectory.js');
     const decompress = require('./decompress.js');
+    //const searchDirectory = require('./searchDirectory.js');
+    const functions = require('./xmlToJson.js');
     
-    filePath = decompress.decompress("moodle.mbz");
+    console.log(sequence + " sequence");
+    filePath = decompress.decompress("moodle.mbz", sequence);
+    sequence+=1;
+    if(sequence > maxSequence)
+        sequence = 0;
     setTimeout(function(){
-        let directory = searchDirectory.searchDirectory();
-        let json = functions.xmltojson(directory);
+        //let directory = searchDirectory.searchDirectory();
+        let json = functions.xmltojson();
         console.log(json);
         console.log(filePath);
         rimraf(filePath, function () { console.log('done'); });
-        //fs.unlinkSync(filePath) 
     }, 3000); //An estimated time, for now
     
 
