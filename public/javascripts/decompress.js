@@ -1,20 +1,24 @@
+/** Decompresses given mbz
+ * @param source: Filepath of the mbz
+ * @param sequence: incrementing id for the folder. Used to prevent collisions
+ */
 function decompress(source, sequence) {
-    var targz = require('targz');
-    var destination = 'moodle.mbz.uncompressed' + sequence;
+    var targz = require('targz'); //mbz is really a targz, so call this
+    var destination = 'moodle.mbz.decompressed' + sequence;
     targz.decompress({
         src: source,
-        dest: destination, //Change to store as temp
+        dest: destination,
     }, function (err) {
         if (err) {
             console.log(err);
         } else {
-            console.log("Done!");
+            console.log(".mbz decompressed into " + destination + "!");
         }
     });
- //   if(dest != null)
-        return destination;
+    return destination;
 }
 module.exports.decompress = decompress;
+
 /*//Copied from https://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
 function uuidv4() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {

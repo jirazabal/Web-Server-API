@@ -49,12 +49,13 @@ function xmltojson() {
             //Find a way to read file name, not path
             if(filePath == "vpl.xml"){
                 //Access each key in key in vpl.
+                //vpl[0].name would access the name for instance
                 p = objectValue.activity.vpl[0];
+                //Prints each key and its value
                 /*for(key in p){
                     console.log(key + "->" + p[key]);
                 }*/
                 
-                //vpl[0].name would access the name for instance
                 // access inner data
                 if (p.name != null) {
                     json2.question_title = p.name;
@@ -64,7 +65,6 @@ function xmltojson() {
                 }
                 if (p.required_files != null) {
                     json2.required_files = p.required_files;
-                    //console.log(json2.required_files[0].required_file[0].name);
                 }
             }
             else if(filePath == "module.xml"){
