@@ -29,6 +29,7 @@ function JsonToMongo() {
         console.log(json);
         console.log(filePath);
         rimraf(filePath, function () { console.log('done'); }); //Delete the temp directory
+        //TODO: push the json to database
     }, 3000); //An estimated time, for now
 }
 JsonToMongo();
