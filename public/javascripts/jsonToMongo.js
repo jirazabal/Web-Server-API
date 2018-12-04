@@ -1,13 +1,13 @@
 var http = require("http");
+var fs = require('fs');
+var filePath;
+var rimraf = require('rimraf');
+
+const functions = require('./xmlToJson.js');
+const searchDirectory = require('./searchDirectory.js');
+const decompress = require('./decompress.js');
 
 function JsonToMongo() {
-    var fs = require('fs');
-    var filePath;
-    var rimraf = require('rimraf');
-    
-    const functions = require('./xmlToJson.js');
-    const searchDirectory = require('./searchDirectory.js');
-    const decompress = require('./decompress.js');
     
     filePath = decompress.decompress("moodle.mbz");
     setTimeout(function(){
